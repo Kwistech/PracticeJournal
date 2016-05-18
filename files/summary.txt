@@ -1,0 +1,7 @@
+Enter information
+into the textboxes
+and rate practice
+session out of 10.
+
+When done press the
+Submit button.
