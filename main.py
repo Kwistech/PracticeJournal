@@ -2,13 +2,21 @@
 from os import path
 from tkinter import *
 import webbrowser
-from PracticeJournal.files.sqlite3_functions import *
-from PracticeJournal.files.html_functions import *
+from files.sqlite3_functions import *
+from files.html_functions import *
 
 
 class App:
+    """Represents the GUI and its function interaction.
+
+    Only call this class once as it creates and displays the interface. """
 
     def __init__(self, conn):
+        """Initialize all data to create interface.
+
+        Args:
+            conn (sqlite3.Connection): Connection to journal.db.
+        """
         self.conn = conn
         self.ratings = list(range(1, 11))
         self.summary = self.get_summary()
@@ -16,6 +24,11 @@ class App:
         self.interface()
 
     def interface(self):
+        """Create GUI (tkinter) for App.
+
+        If you want to change some of the kwargs, just note that all tkinter
+        objects (except frame) are set in a grid (row/column pairs).
+        """
         frame = Frame()
         frame.pack()
 
@@ -47,7 +60,7 @@ class App:
                             values=self.ratings)
         r_spinbox.grid(row=1, column=2)
 
-        info = (p_text, n_text, r_spinbox)
+        info = (p_text, n_text, r_spinbox)  # Retrieves all info from user
 
         o_button = Button(frame, text="Open", width=8, height=1,
                           command=lambda: self.open_html())
@@ -59,15 +72,27 @@ class App:
 
     @staticmethod
     def get_summary():
+        """Retrieve lines from summary.txt
+
+        Returns:
+            list: Contains lines from summary.txt.
+        """
         with open("./files/summary.txt", "r") as f:
             f = f.readlines()
             f = ' '.join(f)
         return f
 
     def open_html(self):
+        """Open html_file in web browser."""
         webbrowser.open(path.realpath(self.html_file))
 
     def get_info(self, info):
+        """Clean info, send it to insert_db, get html_file, write entries.
+
+        Gets user input from info, cleans it up, and sends it to insert_db.
+        Retrieves lines in the self.html_file and gets all entries in
+        database (journal.db). Finally, writes each entry to self.html_file.
+        """
         p_text, n_text, r_spinbox = info
 
         p_text = p_text.get(1.0, 9.0)
@@ -76,7 +101,7 @@ class App:
         n_text = n_text.replace("\n", " ")
         r_spinbox = r_spinbox.get()
 
-        key = get_key(self.conn)
+        key = get_key(self.conn)  # Number of entries in database
 
         insert_db(self.conn, key, p_text, n_text, r_spinbox)
         html_format = get_html_file(self.html_file)
@@ -87,6 +112,7 @@ class App:
 
 
 def main():
+    """Create connection to database and run main program loop."""
     root = Tk()
     root.title("Practice Journal")
 
