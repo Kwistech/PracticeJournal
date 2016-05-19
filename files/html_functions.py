@@ -3,7 +3,7 @@ def get_html_file(html_file):
         with open(html_file, "r") as f:
             f = f.readlines()
     except IOError:
-        raise IOError
+        raise
     else:
         return f
 
@@ -12,9 +12,9 @@ def write_html(html_file, html_format, entries):
     try:
         file = open(html_file, "w")
     except IOError:
-        raise IOError
+        raise
 
-    key = entries[0]
+    key = int(entries[0]) + 1
     date = entries[1]
     practiced = entries[2]
     notes = entries[3]

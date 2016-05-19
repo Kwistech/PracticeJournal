@@ -23,7 +23,7 @@ def get_key(conn):
     try:
         results = conn.execute(sql)
     except OperationalError:
-        raise OperationalError
+        raise
     else:
         entries = results.fetchall()
         return len(entries)
@@ -36,7 +36,7 @@ def insert_db(conn, key, p_text, n_text, r_spinbox):
     try:
         conn.execute(sql)
     except OperationalError:
-        raise OperationalError
+        raise
     else:
         print("Successfully added entry into db!")
     finally:
@@ -50,7 +50,7 @@ def get_db(conn, key):
     try:
         results = conn.execute(sql)
     except OperationalError:
-        raise OperationalError
+        raise
     else:
         entries = results.fetchall()
         return entries

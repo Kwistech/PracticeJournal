@@ -43,7 +43,8 @@ class App:
         n_text = Text(frame, width=30, height=8)
         n_text.grid(row=4, column=0, padx=3, pady=3)
 
-        r_spinbox = Spinbox(frame, width=3, values=self.ratings)
+        r_spinbox = Spinbox(frame, width=3, justify="center",
+                            values=self.ratings)
         r_spinbox.grid(row=1, column=2)
 
         info = (p_text, n_text, r_spinbox)
