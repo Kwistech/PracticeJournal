@@ -8,13 +8,19 @@ Check the project's [Wiki](https://github.com/Kwistech/PracticeJournal/wiki) for
 
 ## Installation
 
-This program is not installed. It is run from the command line.
+This program can be used in two ways:
 
-Fork the repository and clone it to your local drive.
++ Fork the repository and clone it to your local drive.
 
-From the program's root directory, run the following:
+  From the program's root directory, double-click `main.py`
 
-`python main.py`
+---
+
++ Fork the repository and clone it to your local drive.
+
+  From the program's root directory, run the following:
+
+  `python main.py`
 
 ##How to Use
 
