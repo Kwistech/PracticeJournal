@@ -1,6 +1,6 @@
 # PracticeJournal
 
-PracticeJournal v.1.0
+PracticeJournal v.1.0 (Python 3.5)
 
 PracticeJournal is a desktop application for the practicing musician.
 
