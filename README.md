@@ -22,11 +22,11 @@ This program can be used in two ways:
 
   `python main.py`
 
-##How to Use
+## How to Use
 
 The below image is the GUI for PracticeJournal:
 
-![](http://s32.postimg.org/vvpllz745/practicejournal_gui.png)
+[![practicejournal-gui.png](https://s1.postimg.org/t3kvixvbj/practicejournal-gui.png)](https://postimg.org/image/bqal4300b/)
 
 The app has two fields and a spinbox for the user to complete. 
 A user types their practice information in the two fields and provides a 
@@ -38,6 +38,6 @@ After the above is done, the user presses the “Submit” button.
 
 After the submission, the user can press the “Open” button to see all their entries (see below). 
 
-![](http://s32.postimg.org/gnt9aavgl/practicejournal_html.png)
+[![practicejournal-html.png](https://s11.postimg.org/bg9q1gqw3/practicejournal-html.png)](https://postimg.org/image/8yxyu76zj/)
 
 *Note that a browser will open and will display all your entries with their entry number and date of submission*
